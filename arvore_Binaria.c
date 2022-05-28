@@ -10,7 +10,7 @@ typedef struct Vertice{
     struct Vertice * dir;
 }VERTICE;
 
-VERTICE * raiz = NULL;
+VERTICE *raiz = NULL;
 int tam = 0;
 
 VERTICE* buscar(int id, VERTICE *aux){
@@ -37,8 +37,22 @@ VERTICE* buscar(int id, VERTICE *aux){
 }
 
 
-void adicionar(int id){
+VERTICE* adicionar(int id){
     
+    if(raiz->id == NULL){
+        VERTICE *novo = (*VERTICE)malloc(sizeof(VERTICE));
+        novo->id = id;
+        novo->esq = NULL;
+        novo->dir = NULL; 
+    }
+    else if (id < novo->id) // se for menor sub arvore da esquerda
+        a->esq = arv_inserir(a-&amp;amp;amp;gt;esq,v);
+    else if (id > novo->id) // se for maior sub arvore da direita
+        a->dir = arv_inserir(a->dir,v);
+    return a;
+}
+
+
     //criar o vertice - receber dados
     //VERTICE *novo = malloc(sizeof(VERTICE));
     //setar dos dados
@@ -87,7 +101,10 @@ void pos_ordem(VERTICE *aux){
 
 
 int main(){
-    VERTICE *teste = busca(8, raiz);
+    adicionar(5);
+    in_ordem();
+
+
     return 0;
 }
 
