@@ -10,7 +10,7 @@ typedef struct Vertice{
     struct Vertice * dir;
 }VERTICE;
 
-VERTICE * raiz = NULL;
+VERTICE *raiz = NULL;
 int tam = 0;
 
 VERTICE* buscar(int id, VERTICE *aux){
@@ -22,13 +22,13 @@ VERTICE* buscar(int id, VERTICE *aux){
             if(aux->esq != NULL){
                 return buscar(id, aux->esq);
             }else{
-                return NULL;
+                return aux;
             }
         }else if(id > aux->id){
             if(aux->dir != NULL){
                 return buscar(id, aux->dir);
             }else{
-                return NULL;
+                return aux;
             }
         }
     }else{
@@ -37,8 +37,37 @@ VERTICE* buscar(int id, VERTICE *aux){
 }
 
 
-void adicionar(int id){
+void adicionar(int num){
+
+    VERTICE *aux =  buscar(num, raiz);
+
+    if (aux != NULL && aux->id == num){
+        printf("INSERÇÃO INVALIDA\n");
+        
+    }
     
+    else{
+        
+        VERTICE *novo = malloc(sizeof(VERTICE));
+        novo-> id = num;
+        novo-> dir = NULL;
+        novo-> esq = NULL;
+
+        if (aux == NULL){
+            raiz = novo; 
+        }
+        else{    
+            if (num < aux->id){
+                aux->esq = novo;
+            }
+            else{
+                aux->dir = novo;
+            }
+        }
+    }
+}
+
+
     //criar o vertice - receber dados
     //VERTICE *novo = malloc(sizeof(VERTICE));
     //setar dos dados
@@ -47,7 +76,7 @@ void adicionar(int id){
     // VERTICE *teste = busca(7, raiz);
     //verifica se pode adicionar!
     //se sim, verifica se adiciona na esq ou na dir da variavel teste
-}
+
 
 
 
@@ -87,7 +116,16 @@ void pos_ordem(VERTICE *aux){
 
 
 int main(){
-    VERTICE *teste = busca(8, raiz);
+    adicionar(6);
+    adicionar(2);
+    adicionar(8);
+    adicionar(3);
+    adicionar(5);
+    adicionar(9);
+    adicionar(1);
+    printf("\nIMPRIMINDO\n");
+    in_ordem(raiz);
+
     return 0;
 }
 
