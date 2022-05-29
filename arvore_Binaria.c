@@ -22,13 +22,13 @@ VERTICE* buscar(int id, VERTICE *aux){
             if(aux->esq != NULL){
                 return buscar(id, aux->esq);
             }else{
-                return NULL;
+                return aux;
             }
         }else if(id > aux->id){
             if(aux->dir != NULL){
                 return buscar(id, aux->dir);
             }else{
-                return NULL;
+                return aux;
             }
         }
     }else{
@@ -54,14 +54,14 @@ void adicionar(int num){
         novo-> esq = NULL;
 
         if (aux == NULL){
-            raiz == novo; 
+            raiz = novo; 
         }
         else{    
             if (num < aux->id){
-                raiz->esq = novo;
+                aux->esq = novo;
             }
             else{
-                raiz->dir = novo;
+                aux->dir = novo;
             }
         }
     }
