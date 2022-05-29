@@ -1,6 +1,6 @@
 # Estrutura-de-DADOS-arvore-binaria
 
-<<<<<<< HEAD
+
 O adicionar em uma árvore de busca binária sempre vai iniciar colocando o menor a esquerda e o maior a direita.
 
 
@@ -24,11 +24,4 @@ Por fim ficaria assim a árvore.
 
 
 ![adicionado 5](https://user-images.githubusercontent.com/91989796/170874902-6eec83ad-9b08-4e85-9d22-71593e1247e1.png)
-=======
 
-Para adicionar em uma árvore binária de busca, sempre vai adicionar o menor a esquerda e o maior a direita, e existem uma condições especifica que seria:
-
-*1ª- Se a árovre não tiver raiz. Nesse caso terá que adicionar a raiz, já que a era igual a NULL.
-
-Quando essa condição for adicionada ao codigo terá só que começar a adicionar a esquerda.
->>>>>>> Árvore-com-função-adicionar
