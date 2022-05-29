@@ -37,19 +37,34 @@ VERTICE* buscar(int id, VERTICE *aux){
 }
 
 
-VERTICE* adicionar(int id){
-    
-    if(raiz->id == NULL){
-        VERTICE *novo = (*VERTICE)malloc(sizeof(VERTICE));
-        novo->id = id;
-        novo->esq = NULL;
-        novo->dir = NULL; 
+void adicionar(int num){
+
+    VERTICE *aux =  buscar(num, raiz);
+
+    if (aux != NULL && aux->id == num){
+        printf("INSERÇÃO INVALIDA\n");
+        
     }
-    else if (id < novo->id) // se for menor sub arvore da esquerda
-        a->esq = arv_inserir(a-&amp;amp;amp;gt;esq,v);
-    else if (id > novo->id) // se for maior sub arvore da direita
-        a->dir = arv_inserir(a->dir,v);
-    return a;
+    
+    else{
+        
+        VERTICE *novo = malloc(sizeof(VERTICE));
+        novo-> id = num;
+        novo-> dir = NULL;
+        novo-> esq = NULL;
+
+        if (aux == NULL){
+            raiz == novo; 
+        }
+        else{    
+            if (num < aux->id){
+                raiz->esq = novo;
+            }
+            else{
+                raiz->dir = novo;
+            }
+        }
+    }
 }
 
 
@@ -61,7 +76,7 @@ VERTICE* adicionar(int id){
     // VERTICE *teste = busca(7, raiz);
     //verifica se pode adicionar!
     //se sim, verifica se adiciona na esq ou na dir da variavel teste
-}
+
 
 
 
@@ -101,9 +116,15 @@ void pos_ordem(VERTICE *aux){
 
 
 int main(){
+    adicionar(6);
+    adicionar(2);
+    adicionar(8);
+    adicionar(3);
     adicionar(5);
-    in_ordem();
-
+    adicionar(9);
+    adicionar(1);
+    printf("\nIMPRIMINDO\n");
+    in_ordem(raiz);
 
     return 0;
 }
